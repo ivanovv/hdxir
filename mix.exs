@@ -18,7 +18,7 @@ defmodule Hdxir.Mixfile do
   # Type `mix help compile.app` for more information.
   def application do
     [mod: {Hdxir, []},
-     applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext]]
+     applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext, :poolboy]]
   end
 
   # Specifies which paths to compile per environment.
@@ -36,6 +36,7 @@ defmodule Hdxir.Mixfile do
      {:gettext, "~> 0.11"},
      {:export, "~> 0.0.7"},
      {:erlport, github: "hdima/erlport", manager: :make},
+     {:poolboy, "~> 1.5.1"},
      {:cowboy, "~> 1.0"}]
   end
 

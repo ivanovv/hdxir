@@ -13,9 +13,7 @@ defmodule HandsetDetection.Detector do
   end
 
   def get_device_by_user_agent(user_agent) do
-    case GenServer.call(__MODULE__, {:detect, user_agent}) do
-      result -> result
-    end
+    :poolboy.transaction(:detector, fn(pid) -> GenServer.call(pid, {:detect, user_agent}) end, :infinity)
   end
 
   def terminate(_, state) do
